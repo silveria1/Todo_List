@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Todo Lis App</title>
+</head>
+<body>
+    <div class="container pt-5 ">
+        <div class="row  justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+                 <div class="card-header bg-primary text-white">Todo List</div>
+                    <div class="card-body">
+                         <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="input Todo">
+                                        </div>
+                                         </div>
+    <div class="col-md-2">
+    <button class="btn btn-success w-100" id="addTodo">Add</button>
+    </div>
+        </div>
+                <table class="mt-2 table">
+                    <tbody>
+                    <tr>
+                      <td width="10%"><input type="checkbox"></td>
+                      <td>Input Todo</td>
+                      <td width="10%"><button class="btn btn-danger">Delete</button></td>
+                      </tr>
+                      <tr>
+                        <td width="10%"><input type="checkbox"></td>
+                        <td>Input Todo</td>
+                        <td width="10%"><button class="btn btn-danger">Delete</button></td>
+                        <tr>
+                            <td width="10%"><input type="checkbox"></td>
+                            <td>Input Todo</td>
+                            <td width="10%"><button class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tbody>
+                            </table>    
+                        </form>
+               </div>
+            </div>  
+        </div>
+    </div>
+    <script>
+        let todos = {};
+
+        function addTodo(){
+            consttxtInput = document.getElementById("txtInput")
+            todos.push({
+                id: +new Date (),
+                title: txtInput.value,
+                status: false
+            });
+            txtInput.value= "";
+
+            renderTodoList();
+            console.table(todos);
+        }
+
+        function deleteTodo(id){
+            const index = todos.findIndex(todo=>todo.id === id);
+            todos.splice (index,1);
+            renderTodoList();
+        }
+
+        function updateTodoStatus(id){
+            const index = todos.findIndex(todo=> todo.id === id);
+            todos[index].status = !todos[index],status;
+            renderTodoList(); 
+        }   
+
+        function renderTodoList(){
+            const todoList = document.getElementById("todo-list");
+            todoList.innerHTML= "";
+            for (const todo of todos) {
+                todoList.innerHTML += `<tr>
+                    <td with="10%">
+                        <input type= "checkbox" ${todo.status === true?"checked":""}
+                        class="form-check-input" onclick="updatetodostatus(${todo.id})"></td>
+                        <td>${todo.title}</td>
+                    <td width = "10%"> <button class = "btn btn-danger" on click ="deleteTodo(${todo.id})">deleteTodo
+                        </tr>`;
+
+            } 
+                     
+
+        }   
+
+
+
+        Document.getElementById("btnAdd")
+        .addEventlistener("click",function(event){
+            event.preventDefault();
+            addTodo();           
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
